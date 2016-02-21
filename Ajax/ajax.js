@@ -16,7 +16,7 @@ function ajax(url,fnSucc,fnFaild) {
 
 	// 连接服务器
 	// open(方法，url，是否异步)
-	oAjax.open('GET','',true);
+	oAjax.open('GET',url,true);
 
 	// 发送请求
 	oAjax.send();
@@ -34,7 +34,10 @@ function ajax(url,fnSucc,fnFaild) {
 	 			fnSucc(oAjax.responseText);
 	 		} else {
 	 			// fail
-	 			alert('失败了...');
+	 			// alert('失败了...');
+	 			if(fnFaild) {
+	 				fnFaild();
+	 			}
 	 		}
 	 	}
 	}
